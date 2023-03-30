@@ -1,0 +1,58 @@
+server:
+  port: 10001
+spring:
+  mvc:
+    throw-exception-if-no-handler-found: true
+    static-path-pattern: /statics/**
+  datasource:
+    tomcat:
+      max-wait: 14400
+      max-active: 500
+      min-idle: 2
+      initial-size: 10
+    password: ve2021.Ve
+    username: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.1.102:10101/local?useSSL=false&seUnicode=true&characterEncoding=UTF-8
+    platform: postgres
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 50MB
+  main:
+    allow-bean-definition-overriding: true
+  rabbitmq:
+    host: 192.168.1.102
+    port: 10102
+    username: admin
+    password: admin
+    virtual-host: ${spring.profiles.active}
+  redis:
+    jedis:
+      pool:
+        min-idle: 2
+        max-idle: 10
+        max-active: 250
+    timeout: 2000
+    password: c@jdfa3@.Bd
+    port: 6379
+    host: 127.0.0.1
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: cn.ve.commons.dal.entity
+
+minio:
+  #内网传输地址
+  local-url: http://192.168.1.102:9001
+  #外网访问地址
+  url: https://devminio.bnhl8.com
+  access-key: minio
+  secret-key: minio
+file:
+  cleanup-expired-days: 30
+
+logging:
+  gelf:
+    ip: 127.0.0.1
+    port: 12201
+  file: classpath:logback-spring.xml

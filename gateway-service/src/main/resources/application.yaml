@@ -1,0 +1,38 @@
+server:
+  port: 10001
+spring:
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 50MB
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    gateway:
+      routes:
+        - id: thirdgateway
+          uri: lb://thirdgateway
+          predicates:
+            - Path=/thirdgateway/**
+          filters:
+            - StripPrefix=1
+        - id: user
+          uri: lb://user
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix=1
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allow-credentials: true
+            allowed-origins: "*"
+            allowed-headers: "*"
+            allowed-methods: "*"
+            max-age: 3600
+
+logging:
+  gelf:
+    ip: 127.0.0.1
+    port: 12201
+  file: classpath:logback-spring.xml
