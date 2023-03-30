@@ -19,7 +19,7 @@ public class OpenAIConfig {
         // 设置请求参数
         String prompt = "Hello, how are you?";
         int maxTokens = 5;
-        String apiKey = "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";
+        String apiKey = "";
         String model = "text-davinci-003";
 
         // 创建HTTP请求
