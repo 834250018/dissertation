@@ -6,7 +6,7 @@ create table study_course_record
 
     user_id         bigint  not null,
     course_id       bigint  not null,
-    course_schedule decimal(5,2) not null,
+    course_progress decimal(5,2) not null,
 
     creator_id      bigint,
     updater_id      bigint,
@@ -47,7 +47,7 @@ on column study_course_record.user_id is '用户id';
 comment
 on column study_course_record.course_id is '课程id';
 comment
-on column study_course_record.course_schedule is '课程进度';
+on column study_course_record.course_progress is '课程进度';
 
 alter table study_course_record
     owner to test;

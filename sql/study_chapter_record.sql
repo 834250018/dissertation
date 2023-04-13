@@ -4,22 +4,13 @@ create table study_chapter_record
         constraint study_chapter_record_pkey
             primary key,
 
-    phone         varchar                                  not null,
-    head_portrait varchar                                  not null,
-    gender        int                                      not null,
-    province_code varchar                                  not null,
-    city_code     varchar                                  not null,
-    area_code     varchar                                  not null,
-    province_name varchar                                  not null,
-    city_name     varchar                                  not null,
-    area_name     varchar                                  not null,
-    address       varchar                                  not null,
-    birthday      bigint                                   not null,
-    occupation    varchar                                  not null,
-    nickname      varchar                                  not null,
-    nation        varchar  default '汉族'::character varying not null,
-    hometown      varchar                                  not null,
-    age           int                                      not null,
+    user_id         bigint                                  not null,
+    course_id bigint                                  not null,
+    chapter_id        bigint                                      not null,
+    chapter_progress decimal(5,2)                                  not null,
+    chapter_type     int                                  not null,
+    video_progress     decimal(5,2)                                  not null,
+    file_download smallint                                  not null,
 
     creator_id    bigint,
     updater_id    bigint,
@@ -44,7 +35,13 @@ comment on column study_chapter_record.deleted is '是否被删除:0.未删除;1
 comment on column study_chapter_record.versions is '版本号';
 comment on column study_chapter_record.remark is '备注';
 
-comment on column study_chapter_record.phone is '手机号码';
+comment on column study_chapter_record.user_id is '用户id';
+comment on column study_chapter_record.course_id is '课程id';
+comment on column study_chapter_record.chapter_id is '章节id';
+comment on column study_chapter_record.chapter_progress is '章节进度';
+comment on column study_chapter_record.chapter_type is '章节类型:0纯文本,1含视频,2含文件';
+comment on column study_chapter_record.video_progress is '视频进度';
+comment on column study_chapter_record.file_download is '文件是否下载:0未下载,1已下载';
 
 alter table study_chapter_record
     owner to test;

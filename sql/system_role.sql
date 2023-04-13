@@ -1,25 +1,23 @@
 create table system_role
 (
-    id                 bigint   not null
+    id           bigint   not null
         constraint system_role_pkey
             primary key,
 
-    course_id          bigint   not null,
-    user_id            bigint   not null,
-    user_head_portrait varchar  not null,
-    user_name          varchar  not null,
-    review_context     varchar  not null,
-    review_type        smallint not null,
+    role_title   varchar  not null,
+    role_string  varchar  not null,
+    role_order   int      not null,
+    enable       smallint not null,
 
-    creator_id         bigint,
-    updater_id         bigint,
-    creator_name       varchar,
-    updater_name       varchar,
-    create_time        bigint,
-    update_time        bigint,
-    deleted            smallint default 0,
-    versions           int,
-    remark             varchar
+    creator_id   bigint,
+    updater_id   bigint,
+    creator_name varchar,
+    updater_name varchar,
+    create_time  bigint,
+    update_time  bigint,
+    deleted      smallint default 0,
+    versions     int,
+    remark       varchar
 );
 
 comment
@@ -46,17 +44,13 @@ comment
 on column system_role.remark is '备注';
 
 comment
-on column system_role.course_id is '课程id';
+on column system_role.role_title is '角色名称';
 comment
-on column system_role.user_id is '用户id';
+on column system_role.role_string is '角色权限字符串';
 comment
-on column system_role.user_head_portrait is '用户头像';
+on column system_role.role_order is '角色排序';
 comment
-on column system_role.user_name is '用户名称';
-comment
-on column system_role.review_context is '评价内容';
-comment
-on column system_role.review_type is '评价类型:0好评,1差评';
+on column system_role.enable is '启用状态:0未启用,1已启用';
 
 alter table system_role
     owner to test;

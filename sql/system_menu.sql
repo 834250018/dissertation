@@ -1,25 +1,30 @@
 create table system_menu
 (
-    id                 bigint   not null
+    id             bigint   not null
         constraint system_menu_pkey
             primary key,
 
-    course_id          bigint   not null,
-    user_id            bigint   not null,
-    user_head_portrait varchar  not null,
-    user_name          varchar  not null,
-    review_context     varchar  not null,
-    review_type        smallint not null,
+    menu_title     varchar   not null,
+    menu_string    varchar   not null,
+    menu_type      smallint  not null,
+    menu_order     int  not null,
+    parent_id      bigint  not null,
+    route_uri      varchar not null,
+    menu_icon      varchar not null,
+    component_uri  varchar not null,
+    menu_status    smallint not null,
+    menu_hiding    smallint not null,
+    menu_temporary smallint not null,
 
-    creator_id         bigint,
-    updater_id         bigint,
-    creator_name       varchar,
-    updater_name       varchar,
-    create_time        bigint,
-    update_time        bigint,
-    deleted            smallint default 0,
-    versions           int,
-    remark             varchar
+    creator_id     bigint,
+    updater_id     bigint,
+    creator_name   varchar,
+    updater_name   varchar,
+    create_time    bigint,
+    update_time    bigint,
+    deleted        smallint default 0,
+    versions       int,
+    remark         varchar
 );
 
 comment
@@ -46,17 +51,27 @@ comment
 on column system_menu.remark is '备注';
 
 comment
-on column system_menu.course_id is '课程id';
+on column system_menu.menu_title is '菜单名称';
 comment
-on column system_menu.user_id is '用户id';
+on column system_menu.menu_string is '菜单标识';
 comment
-on column system_menu.user_head_portrait is '用户头像';
+on column system_menu.menu_type is '菜单类型';
 comment
-on column system_menu.user_name is '用户名称';
+on column system_menu.menu_order is '菜单排序';
 comment
-on column system_menu.review_context is '评价内容';
+on column system_menu.parent_id is '父菜单id';
 comment
-on column system_menu.review_type is '评价类型:0好评,1差评';
+on column system_menu.route_uri is '路由地址';
+comment
+on column system_menu.menu_icon is '菜单图标';
+comment
+on column system_menu.component_uri is '组件路径';
+comment
+on column system_menu.menu_status is '菜单状态';
+comment
+on column system_menu.menu_hiding is '是否可见:0可见,1隐藏';
+comment
+on column system_menu.menu_temporary is '是否缓存:0不缓存,1缓存';
 
 alter table system_menu
     owner to test;
