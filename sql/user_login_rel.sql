@@ -21,7 +21,7 @@ create table user_login_relation
     versions     int,
     remark       varchar
 );
-comment on table user_login_relation is '用户表';
+comment on table user_login_relation is '用户登录关系表';
 comment on column user_login_relation.id is '主键id';
 comment on column user_login_relation.creator_id is '创建人id';
 comment on column user_login_relation.updater_id is '修改人id';
@@ -34,7 +34,6 @@ comment on column user_login_relation.versions is '版本号';
 comment on column user_login_relation.remark is '备注';
 
 comment on column user_login_relation.user_id is '用户id';
-comment on column user_login_relation.user_type is '用户类型:0.管理员；1.教师;2.学生;';
 comment on column user_login_relation.login_type is '登录类型:0->微信登陆;1->手机号登录;2->账号密码登录;';
 comment on column user_login_relation.username is '账号或手机号或第三方openid';
 comment on column user_login_relation.password is '密码';

@@ -22,6 +22,8 @@
 * **message-service** 消息服务
     * 消息通知业务
     * 阿里云短信
+* **study-api** 学习服务api
+* **study-service** 学习服务
 * **thirdgateway-api** 第三方服务接入api
 * **thirdgateway-service** 第三方服务接入
     * 微信获取openid

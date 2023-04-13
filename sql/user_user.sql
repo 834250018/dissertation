@@ -19,7 +19,6 @@ create table user_user
     nickname      varchar                                  not null,
     nation        varchar  default '汉族'::character varying not null,
     hometown      varchar                                  not null,
-    age           int                                      not null,
 
     creator_id    bigint,
     updater_id    bigint,
@@ -45,6 +44,20 @@ comment on column user_user.versions is '版本号';
 comment on column user_user.remark is '备注';
 
 comment on column user_user.phone is '手机号码';
+comment on column user_user.head_portrait is '头像';
+comment on column user_user.gender is '性别:0男,1女';
+comment on column user_user.province_code is '省份编码';
+comment on column user_user.city_code is '城市编码';
+comment on column user_user.area_code is '区县编码';
+comment on column user_user.province_name is '省份名称';
+comment on column user_user.city_name is '城市名称';
+comment on column user_user.area_name is '区县名称';
+comment on column user_user.address is '详细地址';
+comment on column user_user.birthday is '生日';
+comment on column user_user.occupation is '工作';
+comment on column user_user.nickname is '昵称';
+comment on column user_user.nation is '民族';
+comment on column user_user.hometown is '家乡';
 
 alter table user_user
     owner to test;
