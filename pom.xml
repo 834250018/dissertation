@@ -17,6 +17,8 @@
         <module>message-service</module>
         <module>study-api</module>
         <module>study-service</module>
+        <module>order-api</module>
+        <module>order-service</module>
         <module>user-api</module>
         <module>user-service</module>
         <module>infrastructure</module>
@@ -220,6 +222,11 @@
             <dependency>
                 <groupId>cn.ve</groupId>
                 <artifactId>study-api</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.ve</groupId>
+                <artifactId>order-api</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
