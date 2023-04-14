@@ -88,7 +88,6 @@ public class UserApplication implements CommandLineRunner {
         user.setNickname(CharSequenceUtil.EMPTY);
         user.setNation(CharSequenceUtil.EMPTY);
         user.setHometown(CharSequenceUtil.EMPTY);
-        user.setAge(0);
 
         userUserMapper.insert(user);
         // 创建登录数据

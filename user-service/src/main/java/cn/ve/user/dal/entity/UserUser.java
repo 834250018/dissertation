@@ -94,9 +94,4 @@ public class UserUser extends BaseEntity {
      */
     private String hometown;
 
-    /**
-     * 年龄
-     */
-    private Integer age;
-
 }
