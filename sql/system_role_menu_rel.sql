@@ -4,12 +4,8 @@ create table system_role_menu_rel
         constraint system_role_menu_rel_pkey
             primary key,
 
-    course_id          bigint   not null,
-    user_id            bigint   not null,
-    user_head_portrait varchar  not null,
-    user_name          varchar  not null,
-    review_context     varchar  not null,
-    review_type        smallint not null,
+    role_id            bigint   not null,
+    menu_id            bigint   not null,
 
     creator_id         bigint,
     updater_id         bigint,
@@ -46,17 +42,9 @@ comment
 on column system_role_menu_rel.remark is '备注';
 
 comment
-on column system_role_menu_rel.course_id is '课程id';
+on column system_role_menu_rel.role_id is '角色id';
 comment
-on column system_role_menu_rel.user_id is '用户id';
-comment
-on column system_role_menu_rel.user_head_portrait is '用户头像';
-comment
-on column system_role_menu_rel.user_name is '用户名称';
-comment
-on column system_role_menu_rel.review_context is '评价内容';
-comment
-on column system_role_menu_rel.review_type is '评价类型:0好评,1差评';
+on column system_role_menu_rel.menu_id is '菜单id';
 
 alter table system_role_menu_rel
     owner to test;
